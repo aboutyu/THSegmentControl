@@ -29,21 +29,40 @@ class THSegmentControl: UIView {
         return collectionView
     }()
     
+    lazy var bottomView: UIView = {
+        let lineView = UIView(frame: CGRect(x: 0,
+                                            y: 0,
+                                            width: 0,
+                                            height: self.lineHeight))
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        lineView.backgroundColor = UIColor(red: 219 / 255, green: 218 / 255, blue: 222 / 255, alpha: 1.0)
+        return lineView
+    }()
+    
     lazy var lineView: UIView = {
         let lineView = UIView(frame: CGRect(x: 0,
                                             y: 0,
                                             width: 0,
                                             height: self.lineHeight))
         lineView.translatesAutoresizingMaskIntoConstraints = false
-        lineView.backgroundColor = .blue
         return lineView
     }()
     
-    var delegate: THSegmentControlDelegate?
+    // 메뉴를 갱신할 때 item과 startedItem에 대한 세팅은 필요하기 때문에 갱신할 때 받는다.
     private var items: [String] = []
-    private var font: UIFont?
-    private var spacing: CGFloat = 0.0
-    private var lineHeight: CGFloat = 1.0    
+    private var startedItem: Int = 0
+    private var selectedItem: Int = 0
+    
+    // 메뉴를 갱신하더라도 처음 설정값이 변하는게 드문 경우는 메뉴 갱신할 때 파라미터로 받지 않는다.
+    var delegate: THSegmentControlDelegate?
+    var animation: Bool = false
+    var selectedItemColor: UIColor = UIColor(red: 18 / 255, green: 39 / 255, blue: 71 / 255, alpha: 1.0)
+    var diselectedItemColor: UIColor = UIColor(red: 128 / 255, green: 135 / 255, blue: 142 / 255, alpha: 1.0)
+    
+    var font: UIFont?
+    var spacing: CGFloat = 10.0
+    var lineHeight: CGFloat = 1.0
+    var lineColor: UIColor = UIColor(red: 27 / 255, green: 188 / 255, blue: 255 / 255, alpha: 1.0)
     
     override convenience init(frame: CGRect) {
         self.init(frame: frame)
@@ -72,43 +91,85 @@ class THSegmentControl: UIView {
         self.collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
     }
     
-    private func makeBottomLine() {
+    private func makeMenuLine() {
         self.addSubview(self.lineView)
+        
+        self.lineView.frame = CGRect(x: self.linePosition(num: self.startedItem),
+                                     y: self.frame.size.height - (lineHeight + 1),
+                                     width: self.lineWidth(),
+                                     height: self.lineHeight)
+        self.lineView.backgroundColor = self.lineColor
     }
     
-    func configure(_ items: [String], font: UIFont? = nil, spacing: CGFloat = 0, lineHeight: CGFloat = 1.0) {
-        self.setupUI()
-        self.makeBottomLine()
+    private func makeBottomLine() {
+        self.addSubview(self.bottomView)
         
+        self.bottomView.frame = CGRect(x: 0,
+                                     y: self.frame.size.height - 1,
+                                     width: self.frame.size.width,
+                                     height: 1)
+    }
+    
+    func configure(_ items: [String], startedItem: Int = 0) {
         self.items.removeAll()
         self.items = items
+        self.selectedItem = self.startedItem
         
-        self.font = font
-        self.spacing = spacing
-        self.lineHeight = lineHeight
+        self.setupUI()
+        self.makeBottomLine()
+        self.makeMenuLine()
         
         self.collectionView.reloadData()
     }
 }
 
 extension THSegmentControl {
+    private func moveBottomLine(_ position: Int) {
+        let x = linePosition(num: position)
+        DispatchQueue.main.async {
+            if self.animation {
+                UIView.animate(withDuration: 0.3) {
+                    self.moveBottomLinePosition(x)
+                }
+            } else {
+                self.moveBottomLinePosition(x)
+            }
+        }
+    }
+    
+    private func moveBottomLinePosition(_ x: CGFloat) {
+        self.lineView.frame.origin.x = x
+    }
+    
+    private func linePosition(num: Int) -> CGFloat {
+        if (num >= self.items.count) || num == 0 { return self.spacing }
+        
+        let numToCGFloat = CGFloat(num)
+        let pos = (self.spacing * (numToCGFloat * 2)) + (lineWidth() * numToCGFloat)
+        return pos + (self.spacing * (numToCGFloat + 1))
+    }
     
     private func lineWidth() -> CGFloat {
-        let originWidth = self.frame.size.width / CGFloat(self.items.count)
-        return originWidth - (spacing * 2)
+        return (self.frame.size.width / CGFloat(self.items.count)) - (self.spacing * 3)
     }
 }
 
 extension THSegmentControl: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    private func itemColor(_ row: Int) -> UIColor {
+        return (row == self.selectedItem) ? self.selectedItemColor : self.diselectedItemColor
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! THSegmentControlCell
+        let row = indexPath.row
         
-        cell.name = self.items[indexPath.row]
+        cell.name = self.items[row]
         cell.font = self.font
+        cell.color = itemColor(row)
         cell.reload()
         
         return cell
@@ -119,7 +180,11 @@ extension THSegmentControl: UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.thSegmentControl(self, index: indexPath.row, menu: items[indexPath.row])
+        self.selectedItem = indexPath.row
+        
+        self.moveBottomLine(self.selectedItem)
+        self.collectionView.reloadData()
+        self.delegate?.thSegmentControl(self, index: self.selectedItem, menu: items[self.selectedItem])
     }
 }
 
@@ -136,6 +201,7 @@ class THSegmentControlCell: UICollectionViewCell {
     
     var name: String = ""
     var font: UIFont?
+    var color: UIColor?
     
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -153,5 +219,6 @@ class THSegmentControlCell: UICollectionViewCell {
         self.nameLabel.text = name
         
         if let font = self.font { self.nameLabel.font = font }
+        if let color = self.color { self.nameLabel.textColor = color }
     }
 }
