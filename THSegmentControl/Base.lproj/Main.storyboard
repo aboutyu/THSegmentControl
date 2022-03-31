@@ -50,33 +50,6 @@
             </objects>
             <point key="canvasLocation" x="-93" y="104"/>
         </scene>
-        <!--Sample View Controller-->
-        <scene sceneID="JBs-2o-da3">
-            <objects>
-                <viewController storyboardIdentifier="SampleViewController" id="7cs-b7-e6O" customClass="SampleViewController" customModule="THSegmentControl" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kJL-eV-5r9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu0-uK-nFE">
-                                <rect key="frame" x="191.5" y="440.5" width="31" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="qJ9-G7-e0y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Zu0-uK-nFE" firstAttribute="centerX" secondItem="kJL-eV-5r9" secondAttribute="centerX" id="TDF-DH-JCQ"/>
-                            <constraint firstItem="Zu0-uK-nFE" firstAttribute="centerY" secondItem="kJL-eV-5r9" secondAttribute="centerY" id="c9x-eR-Vyd"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VJ6-PB-dzx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="822" y="104"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

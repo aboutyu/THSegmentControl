@@ -14,7 +14,6 @@
 		7D39686F2668663400A916AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D39686E2668663400A916AD /* Assets.xcassets */; };
 		7D3968722668663400A916AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D3968702668663400A916AD /* LaunchScreen.storyboard */; };
 		7DFACA5927BB7222006DDC36 /* THSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFACA5827BB7222006DDC36 /* THSegmentControl.swift */; };
-		7DFACA5E27BB7E83006DDC36 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFACA5D27BB7E83006DDC36 /* SampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		7D3968712668663400A916AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D3968732668663400A916AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DFACA5827BB7222006DDC36 /* THSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSegmentControl.swift; sourceTree = "<group>"; };
-		7DFACA5D27BB7E83006DDC36 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 				7D3968652668663300A916AD /* AppDelegate.swift */,
 				7D3968672668663300A916AD /* SceneDelegate.swift */,
 				7D3968692668663300A916AD /* ViewController.swift */,
-				7DFACA5D27BB7E83006DDC36 /* SampleViewController.swift */,
 				7D39686B2668663300A916AD /* Main.storyboard */,
 				7D39686E2668663400A916AD /* Assets.xcassets */,
 				7D3968702668663400A916AD /* LaunchScreen.storyboard */,
@@ -153,7 +150,6 @@
 			files = (
 				7D39686A2668663300A916AD /* ViewController.swift in Sources */,
 				7DFACA5927BB7222006DDC36 /* THSegmentControl.swift in Sources */,
-				7DFACA5E27BB7E83006DDC36 /* SampleViewController.swift in Sources */,
 				7D3968662668663300A916AD /* AppDelegate.swift in Sources */,
 				7D3968682668663300A916AD /* SceneDelegate.swift in Sources */,
 			);
@@ -305,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2K3242P3CC;
 				INFOPLIST_FILE = THSegmentControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2K3242P3CC;
 				INFOPLIST_FILE = THSegmentControl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

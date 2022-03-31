@@ -15,7 +15,7 @@ class ViewController: UIViewController, THSegmentControlDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let name = ["첫번째", "두번째", "세번째"]
+        let name = ["first", "second", "third"]
 
         segmentControl.delegate = self
         segmentControl.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
