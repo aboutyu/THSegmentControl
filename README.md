@@ -22,31 +22,70 @@ pod install
 
 You must create UIView and it use custom class in the storyboard after install THSegmentControl.
 
-![](./screenshot.png)
-
-Then you must also import THSegmentControl and create a IBOutlet.
+Then you must also import THSegmentControl, THPageControl and create a IBOutlet.
 
 ![](./screenshot1.png)
+
+And write configure and make delegate methods with THSegmentControlDelegate, THPageControlDelegate.
+
+![](./screenshot2.png)
+
+You can see as below screen.
+
+![](./play.gif)
 
 The following sample code for your reference.
 
 ```swift
 import UIKit
-import THSegmentControl
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var segmentControl: THSegmentControl!
     
-    let menus = ["first", "second", "third"]
+    @IBOutlet weak var segmentControl: THSegmentControl!
+    @IBOutlet weak var pageControl: THPageControl!
+    
+    let name = ["first", "second", "third"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureSegmentUI()
+        configurePageControlUI()
+    }
+    
+    // configure THSegmentControl
+    private func configureSegmentUI() {
         segmentControl.delegate = self
         segmentControl.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         segmentControl.lineHeight = 2.0
+        
+        segmentControl.animation = true
         segmentControl.configure(name)
+    }
+    
+    // configure THPageControl
+    private func configurePageControlUI() {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let firstVC = storyboard.instantiateViewController(withIdentifier: "FirstVC") as! FirstVC
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "SecondVC") as! SecondVC
+        let thirdVC = storyboard.instantiateViewController(withIdentifier: "ThirdVC") as! ThirdVC
+        
+        pageControl.delegate = self
+        pageControl.animation = true
+        pageControl.scrolled = true
+        pageControl.configure(self, items: [firstVC, secondVC, thirdVC])
+    }
+}
+
+extension ViewController: THSegmentControlDelegate {
+    func thSegmentControl(_ segmentControl: UIView, index: Int, menu: String) {
+        pageControl.moveTo(index)
+    }
+}
+
+extension ViewController: THPageControlDelegate {
+    func thPageControl(_ pageControl: UIView, index: Int) {
+        segmentControl.moveTo(index)
     }
 }
 ```
