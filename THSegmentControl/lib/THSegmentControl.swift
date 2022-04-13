@@ -121,6 +121,13 @@ class THSegmentControl: UIView {
         
         self.collectionView.reloadData()
     }
+    
+    func moveTo(_ index: Int) {
+        self.selectedItem = index
+        
+        self.moveBottomLine(self.selectedItem)
+        self.collectionView.reloadData()
+    }
 }
 
 extension THSegmentControl {
@@ -180,10 +187,7 @@ extension THSegmentControl: UICollectionViewDelegate, UICollectionViewDelegateFl
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedItem = indexPath.row
-        
-        self.moveBottomLine(self.selectedItem)
-        self.collectionView.reloadData()
+        self.moveTo(indexPath.row)
         self.delegate?.thSegmentControl(self, index: self.selectedItem, menu: items[self.selectedItem])
     }
 }

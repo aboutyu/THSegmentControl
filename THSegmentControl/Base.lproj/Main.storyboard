@@ -24,8 +24,8 @@
                                     <constraint firstAttribute="height" constant="60" id="ffT-Lj-vWt"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK0-GY-zsh">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK0-GY-zsh" customClass="THPageControl" customModule="THSegmentControl" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -36,13 +36,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nK0-GY-zsh" secondAttribute="trailing" id="CST-WB-daX"/>
                             <constraint firstItem="nK0-GY-zsh" firstAttribute="top" secondItem="jm6-E9-XQH" secondAttribute="bottom" id="H3u-wp-ZhY"/>
                             <constraint firstItem="jm6-E9-XQH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QFu-1G-ce5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nK0-GY-zsh" secondAttribute="bottom" id="bku-bg-Ecp"/>
+                            <constraint firstAttribute="bottom" secondItem="nK0-GY-zsh" secondAttribute="bottom" id="bku-bg-Ecp"/>
                             <constraint firstItem="jm6-E9-XQH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="x63-Qg-mx0"/>
                             <constraint firstItem="nK0-GY-zsh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yy7-uB-r97"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="containerView" destination="nK0-GY-zsh" id="LXK-m1-kt1"/>
+                        <outlet property="pageControl" destination="nK0-GY-zsh" id="hFA-eO-jsj"/>
                         <outlet property="segmentControl" destination="jm6-E9-XQH" id="aX5-tE-uaJ"/>
                     </connections>
                 </viewController>
@@ -50,10 +50,100 @@
             </objects>
             <point key="canvasLocation" x="-93" y="104"/>
         </scene>
+        <!--FirstVC-->
+        <scene sceneID="BRp-8A-qL6">
+            <objects>
+                <viewController storyboardIdentifier="FirstVC" id="y2I-hm-EP4" customClass="FirstVC" customModule="THSegmentControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I2h-Zo-RvJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="firstVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfM-jU-Oqc">
+                                <rect key="frame" x="181" y="437.5" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uaH-cT-F9c"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="YfM-jU-Oqc" firstAttribute="centerX" secondItem="I2h-Zo-RvJ" secondAttribute="centerX" id="5FX-3c-VBM"/>
+                            <constraint firstItem="YfM-jU-Oqc" firstAttribute="centerY" secondItem="I2h-Zo-RvJ" secondAttribute="centerY" id="pK6-G5-Dby"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l7c-xO-kI6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="104"/>
+        </scene>
+        <!--SecondVC-->
+        <scene sceneID="Co4-QN-NE4">
+            <objects>
+                <viewController storyboardIdentifier="SecondVC" id="gqE-Jx-Rst" customClass="SecondVC" customModule="THSegmentControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5QS-Mx-LzY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="secondVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyl-gC-vch">
+                                <rect key="frame" x="168" y="437.5" width="78.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ixg-26-BNx"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="vyl-gC-vch" firstAttribute="centerY" secondItem="5QS-Mx-LzY" secondAttribute="centerY" id="4t6-e9-zoh"/>
+                            <constraint firstItem="vyl-gC-vch" firstAttribute="centerX" secondItem="5QS-Mx-LzY" secondAttribute="centerX" id="d5J-Ea-7Al"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0rb-bx-EQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1190" y="104"/>
+        </scene>
+        <!--ThirdVC-->
+        <scene sceneID="IvJ-8P-Fvf">
+            <objects>
+                <viewController storyboardIdentifier="ThirdVC" id="gcH-lY-KKw" customClass="ThirdVC" customModule="THSegmentControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2vo-cJ-BeH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="thirdVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBV-8b-fn9">
+                                <rect key="frame" x="178.5" y="437.5" width="57.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gUV-Kc-zz5"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="rBV-8b-fn9" firstAttribute="centerX" secondItem="2vo-cJ-BeH" secondAttribute="centerX" id="JN8-cg-aaY"/>
+                            <constraint firstItem="rBV-8b-fn9" firstAttribute="centerY" secondItem="2vo-cJ-BeH" secondAttribute="centerY" id="Oi2-pE-MJN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QeC-M8-uHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="104"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

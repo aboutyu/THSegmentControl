@@ -13,6 +13,10 @@
 		7D39686D2668663300A916AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D39686B2668663300A916AD /* Main.storyboard */; };
 		7D39686F2668663400A916AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D39686E2668663400A916AD /* Assets.xcassets */; };
 		7D3968722668663400A916AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D3968702668663400A916AD /* LaunchScreen.storyboard */; };
+		7D5056FA27FBD74800F9B652 /* THPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5056F927FBD74800F9B652 /* THPageControl.swift */; };
+		7D5056FD27FBD91700F9B652 /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5056FC27FBD91700F9B652 /* FirstVC.swift */; };
+		7D5056FF27FBD91F00F9B652 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5056FE27FBD91F00F9B652 /* SecondVC.swift */; };
+		7D50570127FBD92900F9B652 /* ThirdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D50570027FBD92900F9B652 /* ThirdVC.swift */; };
 		7DFACA5927BB7222006DDC36 /* THSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFACA5827BB7222006DDC36 /* THSegmentControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		7D39686E2668663400A916AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D3968712668663400A916AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D3968732668663400A916AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D5056F927FBD74800F9B652 /* THPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THPageControl.swift; sourceTree = "<group>"; };
+		7D5056FC27FBD91700F9B652 /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
+		7D5056FE27FBD91F00F9B652 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		7D50570027FBD92900F9B652 /* ThirdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVC.swift; sourceTree = "<group>"; };
 		7DFACA5827BB7222006DDC36 /* THSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSegmentControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +66,7 @@
 		7D3968642668663300A916AD /* THSegmentControl */ = {
 			isa = PBXGroup;
 			children = (
+				7D5056FB27FBD90300F9B652 /* SubView */,
 				7DFACA5727BB7213006DDC36 /* lib */,
 				7D3968652668663300A916AD /* AppDelegate.swift */,
 				7D3968672668663300A916AD /* SceneDelegate.swift */,
@@ -70,10 +79,21 @@
 			path = THSegmentControl;
 			sourceTree = "<group>";
 		};
+		7D5056FB27FBD90300F9B652 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				7D5056FC27FBD91700F9B652 /* FirstVC.swift */,
+				7D5056FE27FBD91F00F9B652 /* SecondVC.swift */,
+				7D50570027FBD92900F9B652 /* ThirdVC.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		7DFACA5727BB7213006DDC36 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				7DFACA5827BB7222006DDC36 /* THSegmentControl.swift */,
+				7D5056F927FBD74800F9B652 /* THPageControl.swift */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -149,7 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D39686A2668663300A916AD /* ViewController.swift in Sources */,
+				7D5056FD27FBD91700F9B652 /* FirstVC.swift in Sources */,
+				7D5056FF27FBD91F00F9B652 /* SecondVC.swift in Sources */,
 				7DFACA5927BB7222006DDC36 /* THSegmentControl.swift in Sources */,
+				7D50570127FBD92900F9B652 /* ThirdVC.swift in Sources */,
+				7D5056FA27FBD74800F9B652 /* THPageControl.swift in Sources */,
 				7D3968662668663300A916AD /* AppDelegate.swift in Sources */,
 				7D3968682668663300A916AD /* SceneDelegate.swift in Sources */,
 			);
