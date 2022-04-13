@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name             = "THSegmentControl"
-  spec.version          = "1.0.0"
+  spec.version          = "1.0.1"
   spec.summary          = "Super Easy SegmentControl."
   spec.description      = "This is Super Easy SegmentControl."
   spec.homepage         = "https://github.com/aboutyu/THSegmentControl"
